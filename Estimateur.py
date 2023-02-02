@@ -10,6 +10,18 @@ target = data_set[:, -1] # variable cible
 
 data = data_set[:, :-1]
 
+#Début de la standarisation des variables
+
+data = data - data.mean(0)
+
+data = data / data.std(0)
+
+target = target - np.mean(target)
+
+target = target / np.std(target)
+
+#Fin de la standarisation des variables
+
 # Début de la programmation de l'estimateur des moindres carrés "beta"
 
 dataTxtarget = np.dot(data.T, target) #produit matriciel en la transposée de data et target
